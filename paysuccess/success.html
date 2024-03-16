@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="success.css" />
+  </head>
+  <body>
+    <img src="/images/successorder.jpg" alt="">
+    <div class="b"></div>
+    <div class="bb"></div>
+    <div class="message">
+      <div class="check">&#10004;</div>
+      <p>Success</p>
+      <p>Thankyou for ordering, Your order will be served to you in a jiffy.</p>
+      <button id="ok">OK</button>
+      <a href="/index.html" class="orderagain">Order Food Again</a>
+    </div>
+    
+    <script> 
+        document.getElementById("ok").addEventListener("click", function () {
+            go(4000);
+        });
+        
+        setTimeout(function () {
+            go(3000);
+        }, 10000);
+        
+        setTimeout(function () {
+            go(800);
+        }, 2000);
+        
+        function go(nr) {
+            document.querySelectorAll(".bb").forEach(function (element) {
+                element.style.transitionDuration = "300ms";
+                element.style.opacity = (element.style.opacity === "0") ? "1" : "0";
+            });
+            
+            document.querySelectorAll(".message").forEach(function (element) {
+                element.classList.toggle("comein");
+            });
+        
+            document.querySelectorAll(".check").forEach(function (element) {
+                element.classList.toggle("scaledown");
+            });
+        
+            document.getElementById("go").style.transitionDuration = nr + "ms";
+            document.getElementById("go").style.opacity = (document.getElementById("go").style.opacity === "0") ? "1" : "0";
+        }
+        
+    </script>
+  </body>
+</html>
